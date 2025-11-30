@@ -222,7 +222,7 @@ body::after{
   /* 書本外層縮放（最重要） */
   .book-wrapper{
     width: 90vw;        /* 原本接近 100%，現在縮到 80% */
-    height: 375px;
+    height: 380px;
     margin: 0 auto;     /* 置中 */
     aspect-ratio: 3/4;  /* 書的比例不要太扁 */
   }
@@ -242,5 +242,6 @@ body::after{
     border-width: 2px;
   }
 }
+
 
 
