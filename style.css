@@ -145,7 +145,6 @@ body::after{
       box-shadow:0 24px 50px var(--page-shadow);
       transform-origin:left center;
       transform:rotateY(0deg);
-      /* 翻頁速度調慢一點 */
       transition:transform 1.25s cubic-bezier(0.22, 0.61, 0.36, 1);
       overflow:hidden;
       display:flex;
@@ -156,14 +155,12 @@ body::after{
       transform:rotateY(-180deg);
     }
 
-    /* 疊放順序（可再加頁就繼續往下排） */
     .page:nth-child(1){ z-index:5; }
     .page:nth-child(2){ z-index:4; }
     .page:nth-child(3){ z-index:3; }
     .page:nth-child(4){ z-index:2; }
     .page:nth-child(5){ z-index:1; }
 
-    /* 用整張圖當頁面內容 */
     .page-img{
       width:100%;
       height:100%;
@@ -172,7 +169,6 @@ body::after{
       display:block;
     }
 
-    /* 最後一頁如果想放文字也可以 */
     .page-content{
       flex:1;
       padding:20px 24px;
@@ -206,28 +202,14 @@ body::after{
       text-indent:1.4em;
     }
 
-
-
-    /* -----------------------------------
-   📱 手機版自動縮小 & 避免爆版
------------------------------------ */
-/* -----------------------------------
-   📱 手機版自動縮小 & 避免爆版
------------------------------------ */
-
-
-/* 📱 手機版：讓整本書變小，不是滿版 */
 @media (max-width: 600px){
 
-  /* 書本外層縮放（最重要） */
   .book-wrapper{
-    width: 90vw;        /* 原本接近 100%，現在縮到 80% */
+    width: 90vw; 
     height: 380px;
-    margin: 0 auto;     /* 置中 */
-    aspect-ratio: 3/4;  /* 書的比例不要太扁 */
+    margin: 0 auto; 
+    aspect-ratio: 3/4;
   }
-
-  /* 書本本體縮小 */
   .book{
     transform: translateX(0) scale(0.8) !important;  
     transform-origin: center top;
@@ -236,12 +218,11 @@ body::after{
   .book.opened{
     transform: translateX(0) scale(0.8) !important;
   }
-
-  /* 避免邊框太粗 */
   .page{
     border-width: 2px;
   }
 }
+
 
 
 
