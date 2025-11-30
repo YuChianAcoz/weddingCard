@@ -5,11 +5,9 @@
   let current = 0; // 0-based
 
   function updateBookPosition(){
-    // 第 0 頁 = 封面 → 偏左
     if (current === 0){
       book.classList.remove("opened");
     } else {
-      // 其他頁 → 攤開置中
       book.classList.add("opened");
     }
   }
@@ -28,7 +26,6 @@
     updateBookPosition();
   }
 
-  // 點擊左半部／右半部翻頁（手機友善）
   book.addEventListener("click", function(e){
     const rect = book.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -40,7 +37,6 @@
     }
   });
 
-  // 鍵盤左右鍵翻頁（桌機）
   document.addEventListener("keydown", function(e){
     if(e.key === "ArrowRight"){
       goNext();
@@ -49,6 +45,6 @@
     }
   });
 
-  // 一開始先依照 current=0 設定位置
   updateBookPosition();
 })();
+
