@@ -204,3 +204,47 @@ body::after{
     .page-content p{
       text-indent:1.4em;
     }
+
+
+
+/* -----------------------------------
+   📱 手機版自動縮小 & 避免爆版
+----------------------------------- */
+@media (max-width: 600px) {
+
+  /* 外層 wrapper：讓比例維持好看 */
+  .book-wrapper{
+    width: 95vw;
+    height: auto;
+    aspect-ratio: 3/4;      /* 手機改成比較直的比例 */
+  }
+
+  /* 書本自動縮小，確保不超出螢幕 */
+  .book{
+    transform: translateX(0) scale(0.85) !important;
+    transform-origin: center top;
+  }
+
+  /* 翻開後依然置中 */
+  .book.opened{
+    transform: translateX(0) scale(0.88) !important;
+  }
+
+  /* 單頁：邊框與陰影縮小避免太厚 */
+  .page{
+    border-width: 2px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.35);
+  }
+
+  /* 最後一頁文字縮小 */
+  .page-content{
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .page-content h2{
+    font-size: 18px;
+  }
+}
+
+
