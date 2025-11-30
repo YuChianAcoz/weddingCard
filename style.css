@@ -167,7 +167,8 @@ body::after{
     .page-img{
       width:100%;
       height:100%;
-      object-fit:cover;
+      object-fit: cover; 
+      background-color: #fdf5ea;
       display:block;
     }
 
@@ -207,44 +208,38 @@ body::after{
 
 
 
+    /* -----------------------------------
+   📱 手機版自動縮小 & 避免爆版
+----------------------------------- */
 /* -----------------------------------
    📱 手機版自動縮小 & 避免爆版
 ----------------------------------- */
-@media (max-width: 600px) {
 
-  /* 外層 wrapper：讓比例維持好看 */
+
+/* 📱 手機版：讓整本書變小，不是滿版 */
+@media (max-width: 600px){
+
+  /* 書本外層縮放（最重要） */
   .book-wrapper{
-    width: 95vw;
-    height: auto;
-    aspect-ratio: 3/4;      /* 手機改成比較直的比例 */
+    width: 90vw;        /* 原本接近 100%，現在縮到 80% */
+    height: 350px;
+    margin: 0 auto;     /* 置中 */
+    aspect-ratio: 3/4;  /* 書的比例不要太扁 */
   }
 
-  /* 書本自動縮小，確保不超出螢幕 */
+  /* 書本本體縮小 */
   .book{
-    transform: translateX(0) scale(0.85) !important;
+    transform: translateX(0) scale(0.8) !important;  
     transform-origin: center top;
   }
 
-  /* 翻開後依然置中 */
   .book.opened{
-    transform: translateX(0) scale(0.88) !important;
+    transform: translateX(0) scale(0.8) !important;
   }
 
-  /* 單頁：邊框與陰影縮小避免太厚 */
+  /* 避免邊框太粗 */
   .page{
     border-width: 2px;
-    box-shadow: 0 10px 25px rgba(0,0,0,.35);
-  }
-
-  /* 最後一頁文字縮小 */
-  .page-content{
-    padding: 14px;
-    font-size: 14px;
-  }
-
-  .page-content h2{
-    font-size: 18px;
   }
 }
-
 
